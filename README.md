@@ -6,7 +6,7 @@
 
 まずはローカル完結型のiOSアプリとしてMVPを実装する。
 
-- 対象OS: iOS 17+
+- 対象OS: iOS 18+
 - UI: SwiftUI
 - データ保存: SwiftData
 - 通知: UserNotifications
@@ -126,11 +126,21 @@
 
 ## デザインメモ
 
-- Primary Color: `#3A9CE3`
+- 詳細なデザインシステムは [DESIGN.md](DESIGN.md) を参照する
+- Primary Color: `#3A9C23`
 - Secondary Color: `#C9543E`
 - 主要ナビゲーションは「記録」「カレンダー」「お薬」の3タブ構成とする
 - カードやボタンは，服薬状況がひと目でわかる表示を優先する
+- `assets/screen*.png` は画面イメージとして参照する。ただし，実装時はiOS標準UI，アクセシビリティ，実装しやすさを優先して調整してよい
 
 ## 画面のイメージ
 
-![alt text](assets/transition.jpg)
+### 画面遷移
+
+![画面遷移](assets/transition.jpg)
+
+### 参考画面
+
+| お薬追加 | カレンダー | お薬リスト | 記録 |
+| --- | --- | --- | --- |
+| ![お薬追加](assets/screen1.png) | ![カレンダー](assets/screen2.png) | ![お薬リスト](assets/screen3.png) | ![記録](assets/screen4.png) |
