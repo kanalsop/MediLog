@@ -1,53 +1,55 @@
 ---
 name: MediLog
 colors:
-  surface: '#f5fced'
-  surface-dim: '#d6dcce'
-  surface-bright: '#f5fced'
+  surface: '#f7fffe'
+  surface-dim: '#d3f2f0'
+  surface-bright: '#f7fffe'
   surface-container-lowest: '#ffffff'
-  surface-container-low: '#f0f6e7'
-  surface-container: '#eaf0e1'
-  surface-container-high: '#e4eadc'
-  surface-container-highest: '#dee5d6'
-  on-surface: '#171d14'
-  on-surface-variant: '#3f4a3a'
-  inverse-surface: '#2c3228'
-  inverse-on-surface: '#edf3e4'
-  outline: '#6f7a68'
-  outline-variant: '#bfcab5'
-  surface-tint: '#3A9C23'
-  primary: '#3A9C23'
-  on-primary: '#ffffff'
-  primary-container: '#228709'
-  on-primary-container: '#f8ffef'
-  inverse-primary: '#79dd5d'
-  secondary: '#C9543E'
-  on-secondary: '#ffffff'
-  secondary-container: '#ff7c63'
-  on-secondary-container: '#721506'
-  tertiary: '#a7256d'
-  on-tertiary: '#ffffff'
-  tertiary-container: '#c74087'
-  on-tertiary-container: '#fffbff'
+  surface-container-low: '#e7fffd'
+  surface-container: '#d9fbf9'
+  surface-container-high: '#c9f4f2'
+  surface-container-highest: '#b8e9e7'
+  on-surface: '#07282a'
+  on-surface-variant: '#3e595b'
+  inverse-surface: '#20383a'
+  inverse-on-surface: '#ecfffe'
+  outline: '#4f7f81'
+  outline-variant: '#99dad8'
+  surface-tint: '#70FCF8'
+  primary: '#70FCF8'
+  primary-strong: '#007C7A'
+  on-primary: '#063d40'
+  primary-container: '#d8fffe'
+  on-primary-container: '#073032'
+  inverse-primary: '#007c7a'
+  secondary: '#FCB846'
+  secondary-strong: '#8A5A00'
+  on-secondary: '#3f2500'
+  secondary-container: '#ffe2a2'
+  on-secondary-container: '#3a2500'
+  tertiary: '#ffb7b2'
+  on-tertiary: '#4a1714'
+  tertiary-container: '#ffdeda'
+  on-tertiary-container: '#4a1714'
   error: '#ba1a1a'
   on-error: '#ffffff'
   error-container: '#ffdad6'
   on-error-container: '#93000a'
-  primary-fixed: '#94fa76'
-  primary-fixed-dim: '#79dd5d'
-  on-primary-fixed: '#032100'
-  on-primary-fixed-variant: '#0d5300'
-  secondary-fixed: '#ffdad3'
-  secondary-fixed-dim: '#ffb4a5'
-  on-secondary-fixed: '#3f0400'
-  on-secondary-fixed-variant: '#852312'
+  primary-fixed: '#b8fffd'
+  primary-fixed-dim: '#70FCF8'
+  on-primary-fixed: '#063d40'
+  on-primary-fixed-variant: '#0b5a5e'
+  secondary-fixed: '#ffe2a2'
+  secondary-fixed-dim: '#FCB846'
+  on-secondary-fixed: '#3f2500'
+  on-secondary-fixed-variant: '#765000'
   tertiary-fixed: '#ffd8e6'
   tertiary-fixed-dim: '#ffb0d0'
   on-tertiary-fixed: '#3d0024'
   on-tertiary-fixed-variant: '#8b0357'
-  background: '#f5fced'
-  on-background: '#171d14'
-  surface-variant: '#dee5d6'
+  background: '#f7fffe'
+  on-background: '#07282a'
+  surface-variant: '#d9fbf9'
 typography:
   display-lg:
     fontFamily: Inter
@@ -102,17 +104,20 @@ spacing:
 
 ## Brand & Style
 
-The design system is centered on clarity, reliability, and accessibility. It targets individuals managing their daily health routines, requiring an interface that feels both "clinical" (trustworthy and precise) and "friendly" (approachable and encouraging).
+The design system is centered on clarity, reliability, accessibility, and a soft sense of companionship. It targets individuals managing their daily health routines, requiring an interface that feels trustworthy, easy to read, and gently cute.
 
-The visual style is **Corporate / Modern**, strictly adhering to Apple’s Human Interface Guidelines. It leverages a clean, flat aesthetic that prioritizes content over decoration. High-legibility typography and generous whitespace reduce cognitive load, while the vibrant primary green evokes health and vitality. The interface uses subtle depth and large interactive surfaces to ensure ease of use for all age groups, including those with limited dexterity.
+The visual style is **Friendly / Modern**, strictly adhering to Apple’s Human Interface Guidelines. It leverages a clean, flat aesthetic that prioritizes content over decoration. High-legibility typography and generous whitespace reduce cognitive load, while a cat mascot adds warmth without interfering with medication records. The interface uses subtle depth and large interactive surfaces to ensure ease of use for all age groups, including those with limited dexterity.
 
 ## Colors
 
-This design system utilizes a palette rooted in healthcare semiotics.
+This design system uses a light cyan and warm yellow palette to make daily medication tracking feel approachable while keeping strong contrast for text and controls.
 
-- **Primary Green (#3A9C23):** Used for primary actions, success states, and indicating completed medication adherence. It serves as the visual anchor for the app.
-- **Secondary Red (#C9543E):** Reserved for alerts, explicitly skipped doses, and destructive actions. It is a "soft" red to maintain the friendly tone without causing unnecessary anxiety.
-- **Backgrounds:** A tiered system of soft whites (`#FFFFFF`) for cards and input fields, set against a very light gray background (`#F9FAFB`) to create subtle contrast and structural hierarchy.
+- **Primary Cyan (#70FCF8):** Used for friendly highlight surfaces and selected backgrounds. Because the color is bright, text placed directly on it must use dark teal (`#063D40`) rather than white.
+- **Primary Strong Teal (#007C7A):** Used for active tabs, icons, outlines, links, and status indicators on white surfaces where `#70FCF8` would not have enough contrast.
+- **Secondary Yellow (#FCB846):** Used for soft secondary accents and small mascot details.
+- **Secondary Strong Ochre (#8A5A00):** Used for skipped-dose indicators and yellow-related text/icons where readable contrast is required.
+- **Cat Mascot Colors:** Soft cream fur (`#FFF4DA`) and warm blush (`#FFB7B2`) are used only for the character, keeping the main UI calm.
+- **Backgrounds:** A tiered system of soft whites (`#FFFFFF`) for cards and input fields, set against a very light cyan background (`#F7FFFE`) to create subtle contrast and structural hierarchy.
 - **Neutrals:** Standard iOS-aligned grays are used for secondary text and borders to maintain a native look and feel.
 
 ## Typography
@@ -135,8 +140,8 @@ The design system follows a **fluid grid** model optimized for handheld devices.
 
 This design system avoids heavy shadows, opting instead for **tonal layers** and **low-contrast outlines**.
 
-- **Level 0 (Background):** Soft light gray (`#F9FAFB`).
-- **Level 1 (Cards/Containers):** Pure white (`#FFFFFF`) with a subtle 1px border in a very light gray.
+- **Level 0 (Background):** Very light cyan (`#F7FFFE`).
+- **Level 1 (Cards/Containers):** Pure white (`#FFFFFF`) with a subtle 1px border in cyan-gray.
 - **Active State:** When a card or button is pressed, a very soft, diffused ambient shadow (4px blur, 10% opacity) may be applied to indicate the interaction.
 - **Modals:** Use standard iOS sheet presentation with a backdrop dimming effect to focus the user on the task at hand (e.g., adding a new medication).
 
@@ -152,23 +157,27 @@ The shape language is consistently **Rounded**, reflecting the "friendly" side o
 
 ### Buttons
 
-- **Primary:** Filled with Primary Green, white text, 17px Semi-Bold.
-- **Secondary:** White background with a Primary Green border and text.
+- **Primary:** Filled with Primary Strong Teal and white text, 17px Semi-Bold. For softer selected surfaces, use Primary Cyan with dark teal text.
+- **Secondary:** White background with a Primary Strong Teal border and text.
 - **Large Touch Targets:** All buttons have a minimum height of 50px for critical actions like "Save" or "Mark as Taken."
 
 ### Cards
 
-Medication cards are the primary interface element. They feature a white surface, rounded corners, and a left-aligned vertical "status strip" (Green for taken, Red for skipped, Gray for pending).
+Medication cards are the primary interface element. They feature a white surface, rounded corners, and a left-aligned vertical "status strip" (Strong Teal for taken, Strong Ochre for skipped, Gray for pending).
+
+### Mascot
+
+The cat character uses the `assets/pillneko/` image set as the visual mascot. It acts as a gentle guide in empty states and short encouragement panels. The mascot should be decorative and supportive, not a substitute for labels or critical medication information. It should not appear inside every medication card, because repeated decorative elements would reduce scanability.
 
 ### Status Indicators
 
 - **Checkmarks:** Used inside a circular container (24x24px) for completed tasks.
-- **Crosses/Alerts:** Used for skipped medications or destructive actions, paired with the secondary red color.
+- **Crosses/Alerts:** Used for skipped medications or destructive actions, paired with the secondary yellow color or system destructive styling when the action is irreversible.
 
 ### Navigation Bar & Tab Bar
 
 - **Navigation Bar:** Follows iOS Large Title patterns, transitioning to an inline title on scroll.
-- **Tab Bar:** Clear, recognizable icons for "Records," "Calendar," and "Medications," using Primary Green for the active state and Medium Gray for inactive.
+- **Tab Bar:** Clear, recognizable icons for "Records," "Calendar," and "Medications," using Primary Strong Teal for the active state and Medium Gray for inactive.
 
 ### Input Fields
 
