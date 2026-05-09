@@ -26,7 +26,7 @@ struct ContentView: View {
                     Label("お薬", systemImage: "pills")
                 }
         }
-        .tint(AppTheme.primary)
+        .tint(AppTheme.primaryStrong)
     }
 }
 

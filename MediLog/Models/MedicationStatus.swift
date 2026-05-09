@@ -34,9 +34,9 @@ enum MedicationStatus: String, CaseIterable, Identifiable {
         case .pending:
             AppTheme.pending
         case .taken:
-            AppTheme.primary
+            AppTheme.primaryStrong
         case .skipped:
-            AppTheme.secondary
+            AppTheme.secondaryStrong
         }
     }
 }

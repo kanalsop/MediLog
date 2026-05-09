@@ -56,7 +56,7 @@ struct MedicationOccurrenceCard: View {
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
-                    .tint(AppTheme.primary)
+                    .tint(AppTheme.primaryStrong)
 
                     Button {
                         onRecord(.skipped)
@@ -65,7 +65,7 @@ struct MedicationOccurrenceCard: View {
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.bordered)
-                    .tint(AppTheme.secondary)
+                    .tint(AppTheme.secondaryStrong)
                 }
                 .controlSize(.large)
             }

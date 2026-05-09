@@ -49,8 +49,12 @@ struct MonthCalendarView: View {
                 Text("\(calendar.component(.day, from: date))")
                     .font(.subheadline.weight(isSelected ? .bold : .medium))
                     .frame(width: 34, height: 28)
-                    .foregroundStyle(isSelected ? .white : AppTheme.text)
+                    .foregroundStyle(isSelected ? AppTheme.onPrimary : AppTheme.text)
                     .background(isSelected ? AppTheme.primary : Color.clear, in: Circle())
+                    .overlay(
+                        Circle()
+                            .stroke(isSelected ? AppTheme.primaryStrong : Color.clear, lineWidth: 1)
+                    )
 
                 Circle()
                     .fill(status?.color ?? Color.clear)

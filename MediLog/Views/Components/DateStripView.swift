@@ -20,14 +20,14 @@ struct DateStripView: View {
                             .font(.headline.weight(.semibold))
                     }
                     .frame(maxWidth: .infinity, minHeight: 58)
-                    .foregroundStyle(calendar.isDate(date, inSameDayAs: selectedDate) ? .white : AppTheme.text)
+                    .foregroundStyle(calendar.isDate(date, inSameDayAs: selectedDate) ? AppTheme.onPrimary : AppTheme.text)
                     .background(
                         RoundedRectangle(cornerRadius: 14)
                             .fill(calendar.isDate(date, inSameDayAs: selectedDate) ? AppTheme.primary : AppTheme.card)
                     )
                     .overlay(
                         RoundedRectangle(cornerRadius: 14)
-                            .stroke(AppTheme.outline, lineWidth: calendar.isDate(date, inSameDayAs: selectedDate) ? 0 : 1)
+                            .stroke(calendar.isDate(date, inSameDayAs: selectedDate) ? AppTheme.primaryStrong : AppTheme.outline, lineWidth: 1)
                     )
                 }
                 .buttonStyle(.plain)

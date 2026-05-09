@@ -1,15 +1,21 @@
 import SwiftUI
 
 enum AppTheme {
-    static let primary = Color(hex: 0x3A9C23)
-    static let secondary = Color(hex: 0xC9543E)
-    static let background = Color(hex: 0xF5FCED)
+    static let primary = Color(hex: 0x70FCF8)
+    static let primaryStrong = Color(hex: 0x007C7A)
+    static let primarySoft = Color(hex: 0xD8FFFE)
+    static let onPrimary = Color(hex: 0x063D40)
+    static let secondary = Color(hex: 0xFCB846)
+    static let secondaryStrong = Color(hex: 0x8A5A00)
+    static let background = Color(hex: 0xF7FFFE)
     static let card = Color.white
-    static let text = Color(hex: 0x171D14)
-    static let secondaryText = Color(hex: 0x5F6B58)
-    static let outline = Color(hex: 0xDDE6D6)
-    static let pending = Color(hex: 0x8A9384)
-    static let pendingBackground = Color(hex: 0xF0F3ED)
+    static let text = Color(hex: 0x07282A)
+    static let secondaryText = Color(hex: 0x3E595B)
+    static let outline = Color(hex: 0x99DAD8)
+    static let pending = Color(hex: 0x65706A)
+    static let pendingBackground = Color(hex: 0xF2F5F1)
+    static let catFur = Color(hex: 0xFFF4DA)
+    static let catBlush = Color(hex: 0xFFB7B2)
 }
 
 extension Color {

@@ -70,7 +70,7 @@ struct CalendarView: View {
                     .frame(width: 40, height: 40)
             }
             .buttonStyle(.bordered)
-            .tint(AppTheme.primary)
+            .tint(AppTheme.primaryStrong)
 
             Spacer()
 
@@ -87,7 +87,7 @@ struct CalendarView: View {
                     .frame(width: 40, height: 40)
             }
             .buttonStyle(.bordered)
-            .tint(AppTheme.primary)
+            .tint(AppTheme.primaryStrong)
         }
     }
 

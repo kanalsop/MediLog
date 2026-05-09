@@ -7,18 +7,17 @@ struct MedicationFormView: View {
 
     private let medication: Medication?
     private let calendar = Calendar.medilog
+    private let doseUnit = "錠"
 
     @State private var name: String
-    @State private var doseAmount: String
-    @State private var doseUnit: String
+    @State private var doseAmount: Double
     @State private var memo: String
     @State private var doseTimes: [DoseTimeDraft]
 
     init(medication: Medication? = nil) {
         self.medication = medication
         _name = State(initialValue: medication?.name ?? "")
-        _doseAmount = State(initialValue: medication.map { Self.amountText($0.doseAmount) } ?? "1")
-        _doseUnit = State(initialValue: medication?.doseUnit ?? "錠")
+        _doseAmount = State(initialValue: Self.normalizedDoseAmount(medication?.doseAmount ?? 1))
         _memo = State(initialValue: medication?.memo ?? "")
 
         let drafts = medication?.sortedDoseTimes.map {
@@ -34,13 +33,11 @@ struct MedicationFormView: View {
                     TextField("お薬名", text: $name)
                         .textInputAutocapitalization(.never)
 
-                    HStack {
-                        TextField("量", text: $doseAmount)
-                            .keyboardType(.decimalPad)
-
-                        TextField("単位", text: $doseUnit)
-                            .frame(maxWidth: 90)
-                            .textInputAutocapitalization(.never)
+                    Picker("量", selection: $doseAmount) {
+                        ForEach(Self.doseOptions, id: \.self) { amount in
+                            Text("\(Self.amountText(amount))\(doseUnit)")
+                                .tag(amount)
+                        }
                     }
                 }
 
@@ -97,24 +94,18 @@ struct MedicationFormView: View {
 
     private var canSave: Bool {
         !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-            && !doseUnit.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-            && parsedDoseAmount > 0
+            && doseAmount > 0
             && !doseTimes.isEmpty
-    }
-
-    private var parsedDoseAmount: Double {
-        Double(doseAmount.replacingOccurrences(of: ",", with: ".")) ?? 0
     }
 
     private func save() {
         let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        let trimmedUnit = doseUnit.trimmingCharacters(in: .whitespacesAndNewlines)
         let now = Date()
 
         let target = medication ?? Medication(
             name: trimmedName,
-            doseAmount: parsedDoseAmount,
-            doseUnit: trimmedUnit,
+            doseAmount: doseAmount,
+            doseUnit: doseUnit,
             memo: memo
         )
 
@@ -123,8 +114,8 @@ struct MedicationFormView: View {
         }
 
         target.name = trimmedName
-        target.doseAmount = parsedDoseAmount
-        target.doseUnit = trimmedUnit
+        target.doseAmount = doseAmount
+        target.doseUnit = doseUnit
         target.memo = memo
         target.updatedAt = now
 
@@ -171,6 +162,13 @@ struct MedicationFormView: View {
 
     private static func amountText(_ amount: Double) -> String {
         amount.formatted(.number.precision(.fractionLength(0...2)).grouping(.never))
+    }
+
+    private static let doseOptions: [Double] = (1...20).map { Double($0) / 2 }
+
+    private static func normalizedDoseAmount(_ amount: Double) -> Double {
+        let rounded = (amount * 2).rounded() / 2
+        return min(max(rounded, 0.5), 10)
     }
 }
 
