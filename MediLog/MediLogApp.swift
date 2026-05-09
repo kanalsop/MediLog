@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct MediLogApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .task {
+                    await NotificationManager.shared.requestAuthorization()
+                }
         }
+        .modelContainer(for: [Medication.self, MedicationDoseTime.self, MedicationLog.self])
     }
 }
