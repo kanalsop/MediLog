@@ -25,7 +25,7 @@ struct MonthCalendarView: View {
                         dayButton(for: date)
                     } else {
                         Color.clear
-                            .frame(height: 46)
+                            .frame(height: 52)
                     }
                 }
             }
@@ -40,30 +40,58 @@ struct MonthCalendarView: View {
 
     private func dayButton(for date: Date) -> some View {
         let isSelected = calendar.isDate(date, inSameDayAs: selectedDate)
+        let isToday = calendar.isDate(date, inSameDayAs: Date())
         let status = statusForDate(date)
 
         return Button {
             selectedDate = date
         } label: {
-            VStack(spacing: 4) {
+            VStack(spacing: 5) {
                 Text("\(calendar.component(.day, from: date))")
                     .font(.subheadline.weight(isSelected ? .bold : .medium))
-                    .frame(width: 34, height: 28)
-                    .foregroundStyle(isSelected ? AppTheme.onPrimary : AppTheme.text)
-                    .background(isSelected ? AppTheme.primary : Color.clear, in: Circle())
-                    .overlay(
-                        Circle()
-                            .stroke(isSelected ? AppTheme.primaryStrong : Color.clear, lineWidth: 1)
-                    )
+                    .foregroundStyle(AppTheme.text)
+                    .frame(height: 24)
 
-                Circle()
-                    .fill(status?.color ?? Color.clear)
-                    .frame(width: 6, height: 6)
+                statusMarker(for: status)
             }
-            .frame(maxWidth: .infinity, minHeight: 46)
+            .frame(maxWidth: .infinity, minHeight: 52)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(isSelected ? AppTheme.primarySoft : Color.clear)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(isSelected ? AppTheme.primaryStrong : Color.clear, lineWidth: 2)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(isToday ? AppTheme.secondaryStrong : Color.clear, lineWidth: 2)
+                    .padding(isSelected ? -4 : 0)
+            )
         }
         .buttonStyle(.plain)
         .accessibilityLabel(DateFormatting.fullDate.string(from: date))
+    }
+
+    @ViewBuilder
+    private func statusMarker(for status: MedicationStatus?) -> some View {
+        switch status {
+        case .taken:
+            Capsule()
+                .fill(AppTheme.primaryStrong)
+                .frame(width: 14, height: 7)
+        case .pending:
+            Circle()
+                .fill(AppTheme.pending)
+                .frame(width: 7, height: 7)
+        case .skipped:
+            Circle()
+                .fill(AppTheme.secondaryStrong)
+                .frame(width: 7, height: 7)
+        case nil:
+            Color.clear
+                .frame(width: 14, height: 7)
+        }
     }
 
     private func monthGrid() -> [Date?] {

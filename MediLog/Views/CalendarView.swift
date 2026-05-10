@@ -104,10 +104,22 @@ struct CalendarView: View {
 
     private func legendItem(status: MedicationStatus) -> some View {
         HStack(spacing: 6) {
+            statusMarker(for: status)
+            Text(status.title)
+        }
+    }
+
+    @ViewBuilder
+    private func statusMarker(for status: MedicationStatus) -> some View {
+        switch status {
+        case .taken:
+            Capsule()
+                .fill(status.color)
+                .frame(width: 14, height: 7)
+        case .pending, .skipped:
             Circle()
                 .fill(status.color)
                 .frame(width: 8, height: 8)
-            Text(status.title)
         }
     }
 
