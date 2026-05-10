@@ -116,8 +116,18 @@ extension LegalDocument {
         effectiveDate: "最終更新日: 2026年5月10日",
         sections: [
             LegalDocumentSection(
-                id: "current",
-                title: "ライセンス情報",
+                id: "sound-effects",
+                title: "効果音について",
+                body: "本アプリで使用している一部の効果音は ElevenLabs Sound Effects により生成されています。\n\nAttribution: elevenlabs.io"
+            ),
+            LegalDocumentSection(
+                id: "cat-mascot",
+                title: "猫キャラクター画像について",
+                body: "本アプリで使用している猫キャラクター画像はAIにより生成されています。制作時の参考として Catppuccin の猫アイコンを参照しています。\n\nCatppuccin is licensed under the MIT License.\nCopyright © 2021-present Catppuccin Org\nhttps://github.com/catppuccin/catppuccin"
+            ),
+            LegalDocumentSection(
+                id: "third-party-libraries",
+                title: "外部ライブラリ",
                 body: "現在、アプリ内で表示が必要な外部ライブラリのライセンス情報はありません。今後、外部ライブラリや素材を追加した場合は、この画面にライセンス情報を掲載します。"
             )
         ]
