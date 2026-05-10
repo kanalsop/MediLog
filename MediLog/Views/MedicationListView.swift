@@ -42,6 +42,7 @@ struct MedicationListView: View {
             .sheet(item: $editingMedication) { medication in
                 MedicationFormView(medication: medication)
             }
+            .settingsToolbar()
         }
     }
 

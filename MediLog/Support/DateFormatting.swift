@@ -17,7 +17,52 @@ enum DateFormatting {
     }()
 
     static func timeText(hour: Int, minute: Int) -> String {
-        String(format: "%02d:%02d", hour, minute)
+        TimeFormatPreferences.selectedFormat.format(hour: hour, minute: minute)
+    }
+}
+
+enum TimeFormatPreferences {
+    static let selectedTimeFormatKey = "app.selectedTimeFormat"
+
+    static var selectedFormat: AppTimeFormat {
+        let rawValue = UserDefaults.standard.string(forKey: selectedTimeFormatKey)
+        return AppTimeFormat(rawValue: rawValue ?? "") ?? .twentyFourHour
+    }
+}
+
+enum AppTimeFormat: String, CaseIterable, Identifiable {
+    case twentyFourHour
+    case twelveHour
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .twentyFourHour:
+            "18:00"
+        case .twelveHour:
+            "午後 6:00"
+        }
+    }
+
+    var description: String {
+        switch self {
+        case .twentyFourHour:
+            "24時間表示"
+        case .twelveHour:
+            "午前/午後表示"
+        }
+    }
+
+    func format(hour: Int, minute: Int) -> String {
+        switch self {
+        case .twentyFourHour:
+            return String(format: "%02d:%02d", hour, minute)
+        case .twelveHour:
+            let period = hour < 12 ? "午前" : "午後"
+            let displayHour = hour % 12 == 0 ? 12 : hour % 12
+            return String(format: "%@ %d:%02d", period, displayHour, minute)
+        }
     }
 }
 

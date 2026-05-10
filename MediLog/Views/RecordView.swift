@@ -63,6 +63,7 @@ struct RecordView: View {
             .sheet(isPresented: $showingAddMedication) {
                 MedicationFormView()
             }
+            .settingsToolbar()
         }
     }
 

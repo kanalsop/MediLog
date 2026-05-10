@@ -25,7 +25,7 @@ final class NotificationManager {
             let content = UNMutableNotificationContent()
             content.title = "服薬の時間です"
             content.body = "\(medication.name) \(medication.doseText)"
-            content.sound = .default
+            content.sound = NotificationPreferences.notificationSound
 
             var dateComponents = DateComponents()
             dateComponents.hour = doseTime.hour

@@ -9,6 +9,9 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage(AppTheme.selectedThemeKey) private var selectedThemeID = AppThemeMode.light.rawValue
+    @AppStorage(TimeFormatPreferences.selectedTimeFormatKey) private var selectedTimeFormatID = AppTimeFormat.twentyFourHour.rawValue
+
     var body: some View {
         TabView {
             RecordView()
@@ -27,6 +30,13 @@ struct ContentView: View {
                 }
         }
         .tint(AppTheme.primaryStrong)
+        .preferredColorScheme(selectedTheme.preferredColorScheme)
+        .animation(.easeInOut(duration: 0.25), value: selectedThemeID)
+        .animation(.easeInOut(duration: 0.2), value: selectedTimeFormatID)
+    }
+
+    private var selectedTheme: AppThemeMode {
+        AppThemeMode(rawValue: selectedThemeID) ?? .light
     }
 }
 

@@ -58,6 +58,7 @@ struct CalendarView: View {
             }
             .background(AppTheme.background)
             .navigationTitle("カレンダー")
+            .settingsToolbar()
         }
     }
 
