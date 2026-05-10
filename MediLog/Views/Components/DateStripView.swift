@@ -10,6 +10,9 @@ struct DateStripView: View {
 
         HStack(spacing: 8) {
             ForEach(days, id: \.self) { date in
+                let isSelected = calendar.isDate(date, inSameDayAs: selectedDate)
+                let isToday = calendar.isDate(date, inSameDayAs: Date())
+
                 Button {
                     selectedDate = date
                 } label: {
@@ -20,14 +23,19 @@ struct DateStripView: View {
                             .font(.headline.weight(.semibold))
                     }
                     .frame(maxWidth: .infinity, minHeight: 58)
-                    .foregroundStyle(calendar.isDate(date, inSameDayAs: selectedDate) ? AppTheme.onPrimary : AppTheme.text)
+                    .foregroundStyle(isSelected ? AppTheme.onPrimary : AppTheme.text)
                     .background(
                         RoundedRectangle(cornerRadius: 14)
-                            .fill(calendar.isDate(date, inSameDayAs: selectedDate) ? AppTheme.primary : AppTheme.card)
+                            .fill(isSelected ? AppTheme.primary : AppTheme.card)
                     )
                     .overlay(
                         RoundedRectangle(cornerRadius: 14)
-                            .stroke(calendar.isDate(date, inSameDayAs: selectedDate) ? AppTheme.primaryStrong : AppTheme.outline, lineWidth: 1)
+                            .stroke(isSelected ? AppTheme.primaryStrong : AppTheme.outline, lineWidth: 1)
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 17)
+                            .stroke(isToday ? AppTheme.secondaryStrong : Color.clear, lineWidth: 2)
+                            .padding(-3)
                     )
                 }
                 .buttonStyle(.plain)

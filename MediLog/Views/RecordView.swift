@@ -18,6 +18,8 @@ struct RecordView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
+                    companionCard
+
                     DateStripView(selectedDate: $selectedDate)
 
                     HStack {
@@ -70,18 +72,52 @@ struct RecordView: View {
         return "\(taken)/\(occurrences.count) 件を記録済み"
     }
 
+    private var companionCard: some View {
+        HStack(spacing: 14) {
+            CatMascotView(size: 72, variant: .capsule)
+
+            VStack(alignment: .leading, spacing: 6) {
+                Text("今日もいっしょに記録しよう")
+                    .font(.headline)
+                    .foregroundStyle(AppTheme.text)
+                Text("飲んだらカードのボタンを押してね！")
+                    .font(.subheadline)
+                    .foregroundStyle(AppTheme.secondaryText)
+            }
+
+            Spacer(minLength: 0)
+        }
+        .padding(16)
+        .background(AppTheme.card, in: RoundedRectangle(cornerRadius: 18))
+        .overlay(
+            RoundedRectangle(cornerRadius: 18)
+                .stroke(AppTheme.outline, lineWidth: 1)
+        )
+    }
+
     private var emptyState: some View {
-        ContentUnavailableView {
-            Label("服薬予定がありません", systemImage: "pills")
-        } description: {
+        VStack(spacing: 14) {
+            CatMascotView(size: 96, variant: .tablet)
+            Text("服薬予定がありません")
+                .font(.headline)
+                .foregroundStyle(AppTheme.text)
             Text("お薬を追加すると、毎日の予定がここに表示されます。")
-        } actions: {
+                .font(.subheadline)
+                .foregroundStyle(AppTheme.secondaryText)
+                .multilineTextAlignment(.center)
+
             Button("お薬を追加") {
                 showingAddMedication = true
             }
             .buttonStyle(.borderedProminent)
-            .tint(AppTheme.primary)
+            .tint(AppTheme.primaryStrong)
         }
         .frame(maxWidth: .infinity, minHeight: 280)
+        .padding(20)
+        .background(AppTheme.card, in: RoundedRectangle(cornerRadius: 18))
+        .overlay(
+            RoundedRectangle(cornerRadius: 18)
+                .stroke(AppTheme.outline, lineWidth: 1)
+        )
     }
 }

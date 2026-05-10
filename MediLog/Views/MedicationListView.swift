@@ -46,18 +46,28 @@ struct MedicationListView: View {
     }
 
     private var emptyState: some View {
-        ContentUnavailableView {
-            Label("お薬が登録されていません", systemImage: "pills")
-        } description: {
+        VStack(spacing: 14) {
+            CatMascotView(size: 104, variant: .roundTablet)
+            Text("お薬が登録されていません")
+                .font(.headline)
+                .foregroundStyle(AppTheme.text)
             Text("毎日飲むお薬を追加してください。")
-        } actions: {
+                .font(.subheadline)
+                .foregroundStyle(AppTheme.secondaryText)
+
             Button("お薬を追加") {
                 showingAddMedication = true
             }
             .buttonStyle(.borderedProminent)
-            .tint(AppTheme.primary)
+            .tint(AppTheme.primaryStrong)
         }
         .frame(maxWidth: .infinity, minHeight: 360)
+        .padding(20)
+        .background(AppTheme.card, in: RoundedRectangle(cornerRadius: 18))
+        .overlay(
+            RoundedRectangle(cornerRadius: 18)
+                .stroke(AppTheme.outline, lineWidth: 1)
+        )
     }
 
     private func medicationCard(_ medication: Medication) -> some View {
@@ -65,9 +75,9 @@ struct MedicationListView: View {
             HStack(alignment: .top, spacing: 12) {
                 Image(systemName: "pills.fill")
                     .font(.title3)
-                    .foregroundStyle(AppTheme.primary)
+                    .foregroundStyle(AppTheme.primaryStrong)
                     .frame(width: 32, height: 32)
-                    .background(AppTheme.primary.opacity(0.12), in: Circle())
+                    .background(AppTheme.primarySoft, in: Circle())
 
                 VStack(alignment: .leading, spacing: 6) {
                     Text(medication.name)
@@ -102,10 +112,10 @@ struct MedicationListView: View {
                 ForEach(medication.sortedDoseTimes) { doseTime in
                     Text(doseTime.displayText)
                         .font(.caption.weight(.semibold))
-                        .foregroundStyle(AppTheme.primary)
+                        .foregroundStyle(AppTheme.primaryStrong)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 6)
-                        .background(AppTheme.primary.opacity(0.12), in: Capsule())
+                        .background(AppTheme.primarySoft, in: Capsule())
                 }
             }
 
