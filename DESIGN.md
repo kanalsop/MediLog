@@ -120,6 +120,32 @@ This design system uses a light cyan and soft pink palette to make daily medicat
 - **Backgrounds:** A tiered system of soft whites (`#FFFFFF`) for cards and input fields, set against a very light cyan background (`#F7FFFE`) to create subtle contrast and structural hierarchy.
 - **Neutrals:** Standard iOS-aligned grays are used for secondary text and borders to maintain a native look and feel.
 
+### Themes
+
+The existing palette is the **Light** theme. A **Dark** theme is available for low-light use while preserving the cyan and pink brand identity.
+
+| Token | Light | Dark |
+| --- | --- | --- |
+| Primary | `#70FCF8` | `#70FCF8` |
+| Primary Strong | `#007C7A` | `#66E7E4` |
+| Primary Container | `#D8FFFE` | `#123F42` |
+| Secondary | `#FCC4BE` | `#FCC4BE` |
+| Secondary Strong | `#A33A48` | `#FF9CA8` |
+| Background | `#F7FFFE` | `#061A1C` |
+| Card | `#FFFFFF` | `#0F272A` |
+| Text | `#07282A` | `#F0FFFE` |
+| Secondary Text | `#3E595B` | `#B7D4D2` |
+| Outline | `#99DAD8` | `#2E6467` |
+| Pending | `#65706A` | `#A2AEAA` |
+| Pending Background | `#F2F5F1` | `#1C3335` |
+
+Dark theme rules:
+
+- Text on bright cyan continues to use dark teal (`#063D40`).
+- Links, selected icons, and active controls use `#66E7E4` on dark surfaces for readable contrast.
+- Cards use a raised dark teal surface (`#0F272A`) rather than pure black, keeping the app soft and consistent with the mascot-forward style.
+- Theme changes should animate with a short ease-in-out transition, so the settings screen remains in place while colors update.
+
 ## Typography
 
 The typography system uses **Inter** (as the closest high-quality alternative to San Francisco) to provide a native iOS experience. It prioritizes a clear information hierarchy:
@@ -178,6 +204,12 @@ The cat character uses the `assets/pillneko/` image set as the visual mascot. It
 
 - **Navigation Bar:** Follows iOS Large Title patterns, transitioning to an inline title on scroll.
 - **Tab Bar:** Clear, recognizable icons for "Records," "Calendar," and "Medications," using Primary Strong Teal for the active state and Medium Gray for inactive.
+
+### Settings
+
+- **Time Format:** Users can choose between `18:00` and `午後 6:00`. The selection lives in a collapsible row so the general settings screen remains compact.
+- **Theme:** Users can choose Light or Dark. Theme changes animate in place with a short ease-in-out transition.
+- **App Information:** Terms of use, privacy policy, and license information are readable from the settings screen using simple text pages with clear section headings.
 
 ### Input Fields
 
