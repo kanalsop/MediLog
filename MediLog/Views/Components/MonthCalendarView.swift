@@ -20,7 +20,7 @@ struct MonthCalendarView: View {
             }
 
             LazyVGrid(columns: columns, spacing: 6) {
-                ForEach(monthGrid(), id: \.self) { date in
+                ForEach(Array(monthGrid().enumerated()), id: \.offset) { _, date in
                     if let date {
                         dayButton(for: date)
                     } else {
