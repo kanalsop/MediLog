@@ -7,3 +7,6 @@ Config/Local.xcconfig
 
 # macOS
 .DS_Store
+
+# development artifacts
+.dev
