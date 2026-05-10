@@ -12,6 +12,18 @@
 - 通知: UserNotifications
 - 同期・ログイン: MVPでは対応しない
 
+## 開発環境
+
+### 実機ビルド用の署名設定
+
+Apple Developer Team ID は公開リポジトリに含めないため，ローカルの `.xcconfig` で設定する。
+
+```sh
+cp Config/Local.xcconfig.example Config/Local.xcconfig
+```
+
+`Config/Local.xcconfig` の `MEDILOG_DEVELOPMENT_TEAM` に自分の Team ID を設定する。このファイルは `.gitignore` で除外される。
+
 ### MVPの範囲
 
 - 薬は「毎日，指定時刻に飲む」スケジュールのみ対応する

@@ -1,3 +1,9 @@
-# OS files
-.DS_Store
+# Xcode user state
+**/xcuserdata/
+*.xcuserstate
 
+# Local signing settings
+Config/Local.xcconfig
+
+# macOS
+.DS_Store
