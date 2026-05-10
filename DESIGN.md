@@ -22,11 +22,11 @@ colors:
   primary-container: '#d8fffe'
   on-primary-container: '#073032'
   inverse-primary: '#007c7a'
-  secondary: '#FCB846'
-  secondary-strong: '#8A5A00'
-  on-secondary: '#3f2500'
-  secondary-container: '#ffe2a2'
-  on-secondary-container: '#3a2500'
+  secondary: '#FCC4BE'
+  secondary-strong: '#A33A48'
+  on-secondary: '#4a1714'
+  secondary-container: '#ffe4e0'
+  on-secondary-container: '#4a1714'
   tertiary: '#ffb7b2'
   on-tertiary: '#4a1714'
   tertiary-container: '#ffdeda'
@@ -39,10 +39,10 @@ colors:
   primary-fixed-dim: '#70FCF8'
   on-primary-fixed: '#063d40'
   on-primary-fixed-variant: '#0b5a5e'
-  secondary-fixed: '#ffe2a2'
-  secondary-fixed-dim: '#FCB846'
-  on-secondary-fixed: '#3f2500'
-  on-secondary-fixed-variant: '#765000'
+  secondary-fixed: '#ffe4e0'
+  secondary-fixed-dim: '#FCC4BE'
+  on-secondary-fixed: '#4a1714'
+  on-secondary-fixed-variant: '#7b2532'
   tertiary-fixed: '#ffd8e6'
   tertiary-fixed-dim: '#ffb0d0'
   on-tertiary-fixed: '#3d0024'
@@ -110,12 +110,12 @@ The visual style is **Friendly / Modern**, strictly adhering to Apple’s Human 
 
 ## Colors
 
-This design system uses a light cyan and warm yellow palette to make daily medication tracking feel approachable while keeping strong contrast for text and controls.
+This design system uses a light cyan and soft pink palette to make daily medication tracking feel approachable while keeping strong contrast for text and controls.
 
 - **Primary Cyan (#70FCF8):** Used for friendly highlight surfaces and selected backgrounds. Because the color is bright, text placed directly on it must use dark teal (`#063D40`) rather than white.
 - **Primary Strong Teal (#007C7A):** Used for active tabs, icons, outlines, links, and status indicators on white surfaces where `#70FCF8` would not have enough contrast.
-- **Secondary Yellow (#FCB846):** Used for soft secondary accents and small mascot details.
-- **Secondary Strong Ochre (#8A5A00):** Used for skipped-dose indicators and yellow-related text/icons where readable contrast is required.
+- **Secondary Pink (#FCC4BE):** Used for soft secondary accents and small mascot details.
+- **Secondary Strong Rose (#A33A48):** Used for skipped-dose indicators and pink-related text/icons where readable contrast is required.
 - **Cat Mascot Colors:** Soft cream fur (`#FFF4DA`) and warm blush (`#FFB7B2`) are used only for the character, keeping the main UI calm.
 - **Backgrounds:** A tiered system of soft whites (`#FFFFFF`) for cards and input fields, set against a very light cyan background (`#F7FFFE`) to create subtle contrast and structural hierarchy.
 - **Neutrals:** Standard iOS-aligned grays are used for secondary text and borders to maintain a native look and feel.
@@ -163,7 +163,7 @@ The shape language is consistently **Rounded**, reflecting the "friendly" side o
 
 ### Cards
 
-Medication cards are the primary interface element. They feature a white surface, rounded corners, and a left-aligned vertical "status strip" (Strong Teal for taken, Strong Ochre for skipped, Gray for pending).
+Medication cards are the primary interface element. They feature a white surface, rounded corners, and a left-aligned vertical "status strip" (Strong Teal for taken, Strong Rose for skipped, Gray for pending).
 
 ### Mascot
 
@@ -172,7 +172,7 @@ The cat character uses the `assets/pillneko/` image set as the visual mascot. It
 ### Status Indicators
 
 - **Checkmarks:** Used inside a circular container (24x24px) for completed tasks.
-- **Crosses/Alerts:** Used for skipped medications or destructive actions, paired with the secondary yellow color or system destructive styling when the action is irreversible.
+- **Crosses/Alerts:** Used for skipped medications or destructive actions, paired with the secondary strong rose color or system destructive styling when the action is irreversible.
 
 ### Navigation Bar & Tab Bar
 

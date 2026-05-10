@@ -5,8 +5,8 @@ enum AppTheme {
     static let primaryStrong = Color(hex: 0x007C7A)
     static let primarySoft = Color(hex: 0xD8FFFE)
     static let onPrimary = Color(hex: 0x063D40)
-    static let secondary = Color(hex: 0xFCB846)
-    static let secondaryStrong = Color(hex: 0x8A5A00)
+    static let secondary = Color(hex: 0xFCC4BE)
+    static let secondaryStrong = Color(hex: 0xA33A48)
     static let background = Color(hex: 0xF7FFFE)
     static let card = Color.white
     static let text = Color(hex: 0x07282A)
